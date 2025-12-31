@@ -1,0 +1,16 @@
+export const getPackageById = async (id) => {
+  try {
+    const res = await fetch(`https://backend.asiagotravels.com/api/allPackage/${id}`, {
+      method: "GET",
+      cache: "no-store",
+    });
+
+    const data = await res.json();
+    console.log(data, "aspjfeiu");
+    
+    return data?.data || {};
+  } catch (err) {
+    console.log("❌ Error fetching package:", err);
+    return {};
+  }
+};
